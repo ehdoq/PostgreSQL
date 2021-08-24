@@ -1,1 +1,2 @@
-# Patika.dev üzerinden öğrendiklerimi yazdığım sql reposu
+# Patika.dev üzerinden psql dersinde öğrendiklerimi ve ödevleri yazdığım repo
+ 
