@@ -27,8 +27,8 @@ AND replacement_cost =
 
 --4, payment tablosunda en fazla sayıda alışveriş yapan müşterileri(customer) sıralayınız.
 --SELECT MAX(payment.sayac) FROM (SELECT COUNT(customer_id) AS sayac FROM payment GROUP BY customer_id)payment  
-SELECT customer_id, COUNT(*) FROM payment
-GROUP BY customer_id HAVING COUNT(*) = 
-(
-	SELECT MAX(sayac) FROM (SELECT COUNT(*) AS sayac FROM payment GROUP BY customer_id) AS maksimum
-)
+SELECT SUM(amount) AS satis, customer.first_name, customer.last_name FROM payment
+JOIN customer ON customer.customer_id = payment.customer_id
+GROUP BY payment.customer_id, customer.first_name, customer.last_name
+ORDER BY satis DESC
+LIMIT 1
